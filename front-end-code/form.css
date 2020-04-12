@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #f6f5f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 50px 0 50px;
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  margin: 0;
+  font-weight: bold;
+}
+
+p {
+  font-size: 15px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 10px 0 10px;
+}
+
+a {
+  margin: 15px 0;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  width: 768px;
+  max-width: 100%;
+  min-width: 480px;
+  height: 650px;
+}
+
+.form-container form {
+  background: #fff;
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-container input {
+  margin: 8px 0;
+  padding: 12px 15px;
+  width: 100%;
+  background: #eee;
+  border: none;
+}
+
+.periodtype {
+  margin: 8px 0;
+  padding: 12px 15px;
+  width: 100%;
+  background: #eee;
+  border: none;
+}
+
+.label {
+  font-weight: bold;
+}
+
+button {
+  margin: 10px 0;
+  border-radius: 20px;
+  border: 1px solid #ff4b2b;
+  background: #ff4b2b;
+  color: #fff;
+  padding: 12px 35px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+}
+
+.back-button {
+  margin: 50px 0;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+button.ghost {
+  border-color: #fff;
+  background: transparent;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: 0.6s ease-in-out;
+}
+
+.sign-up-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.sign-in-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  z-index: 100;
+  transition: transform 0.6s ease-in-out;
+  overflow: hidden;
+}
+
+.overlay {
+  background: linear-gradient(to right, #2193b0, #6dd5ed) no-repeat 0 0 / cover;
+  background: #2193b0;
+  color: #fff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  text-align: center;
+  height: 100%;
+  width: 50%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+.overlay-left {
+  transform: translateX(-20%);
+}
+
+/* Animation */
+
+/* Move form to the right */
+.container.right-panel-active .sign-up-container {
+  transform: translateX(100%);
+  display: none;
+}
+
+/* Move overlay to left */
+.container.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+
+/* Bring results over form */
+.container.right-panel-active .sign-in-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+}
+
+/* Move overlay back to right */
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+.container.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+
+/* Displaying the results */
+
+.display-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 20px -120px;
+  float: left;
+  padding-bottom: 7px;
+}
+
+.results {
+  margin-left: 7px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid green;
+}
+
+.error-message {
+  opacity: 0;
+  color: #ed213a;
+}
+
+/* Error */
+.container.error #submit {
+  border: 1.5px solid #ed213a;
+  color: #ed213a;
+}
+
+.overlay-right.error-message-visible #error-message {
+  opacity: 1;
+}

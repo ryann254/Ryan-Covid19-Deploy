@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="form.css" />
+    <title>Estimator App</title>
+  </head>
+  <script src="https://use.fontawesome.com/8c0baf4a24.js"></script>
+  <body>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container" id="sign-up-container">
+        <form action="#">
+          <h1>Please fill the form</h1>
+          <input
+            required
+            data-population
+            id="population"
+            type="number"
+            placeholder="Enter population..."
+            name="population"
+            onfocusin="removeWarning()"
+          />
+          <input
+            required
+            data-time-to-elapse
+            id="timeToElapse"
+            type="number"
+            placeholder="Enter estimation time..."
+            name="timeToElapse"
+            onfocusin="removeWarning()"
+          />
+          <input
+            required
+            data-reported-cases
+            id="reportedCases"
+            type="number"
+            placeholder="Enter reported cases..."
+            name="reportedCases"
+            onfocusin="removeWarning()"
+          />
+          <input
+            required
+            data-total-hospital-beds
+            id="totalHospitalBeds"
+            type="number"
+            placeholder="Enter total hospital beds available..."
+            name="totalHospitalBeds"
+            onfocusin="removeWarning()"
+          />
+          <label class="label">Choose your period type</label>
+          <select
+            class="periodtype"
+            id="periodType"
+            required
+            onfocusin="removeWarning()"
+          >
+            <option selected>...</option>
+            <option value="days">Days</option>
+            <option value="weeks">Weeks</option>
+            <option value="months">Months</option>
+          </select>
+          <button data-go-estimate type="button" class="back-button">
+            <a href="./index.html">Back to Homepage</a>
+          </button>
+        </form>
+      </div>
+
+      <div class="form-container sign-in-container">
+        <form action="#">
+          <h1>Here are your results</h1>
+          <div class="display-results">
+            <label>Currently Infected: </label>
+            <div id="currentlyInfected" class="results"></div>
+            <label id="infectionsLabel"></label>
+            <div id="infectionsByTimeRequested" class="results"></div>
+            <label id="icuCasesLabel"></label>
+            <div id="casesForICUByRequestedTime" class="results"></div>
+            <label id="hospitalBeds"></label>
+            <div id="hospitalBedsByRequestedTime" class="results"></div>
+            <label id="ventilators"></label>
+            <div id="casesForVentilatorsByRequestedTime" class="results"></div>
+            <label>Lost Money in the Economy: </label>
+            <div id="dollarsInFlight" class="results"></div>
+          </div>
+        </form>
+      </div>
+
+      <div class="overlay-container" id="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Congratulations!</h1>
+            <button class="ghost" onclick="backButton()">Go back</button>
+          </div>
+          <div class="overlay-panel overlay-right" id="overlay-right">
+            <h1>Hello, there!</h1>
+            <p>
+              This right here is valid estimator to be used by governments or
+              NGO's or even for personal use
+            </p>
+            <p>Click submit to see the estimate results</p>
+            <button
+              data-go-estimate
+              type="submit"
+              id="submit"
+              class="ghost"
+              onclick="handleSave()"
+            >
+              Submit
+            </button>
+            <span class="error-message" id="error-message"
+              >All the fields are required</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/src/estimator.js"></script>
+    <script>
+      function backButton() {
+        const container = document.getElementById('container');
+        container.classList.remove('right-panel-active');
+      }
+    </script>
+  </body>
+</html>

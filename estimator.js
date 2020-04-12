@@ -246,7 +246,7 @@ function fillData(calculatedData, timeToElapse, periodType) {
   infectionsByRT.innerHTML = calculatedData.impact.infectionsByRequestedTime;
   icuCasesLabel.innerHTML = `People Needing ICU Care in ${timeToElapse.value} ${periodType.value}: `;
   casesForICUByRT.innerHTML = calculatedData.impact.casesForICUByRequestedTime;
-  hospitalBeds.innerHTML = `Hospital Beds Available in ${timeToElapse.value} ${periodType.value}: `;
+  hospitalBeds.innerHTML = `Hospital Beds Still Available in ${timeToElapse.value} ${periodType.value}: `;
   BedsByRT.innerHTML = calculatedData.impact.hospitalBedsByRequestedTime;
   ventilators.innerHTML = `Ventilators Needed in ${timeToElapse.value} ${periodType.value}: `;
   cVent.innerHTML = calculatedData.impact.casesForVentilatorsByRequestedTime;

@@ -278,7 +278,7 @@ function handleSave() {
     periodType.value
   );
   checkArray.forEach((item) => {
-    if (item === '...') {
+    if (item === '') {
       const overlayRight = document.querySelector('#overlay-right');
       container.classList.add('error');
       overlayRight.classList.add('error-message-visible');

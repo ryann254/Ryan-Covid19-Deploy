@@ -3,19 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="Description"
+      content="Estimator App, Corona, Covid19, virus estimation"
+    />
     <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap"
       rel="stylesheet"
-      href="path/to/font-awesome/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="form.css" />
     <title>Estimator App</title>
   </head>
-  <script src="https://use.fontawesome.com/8c0baf4a24.js"></script>
   <body>
     <div class="container" id="container">
       <div class="form-container sign-up-container" id="sign-up-container">
         <form action="#">
           <h1>Please fill the form</h1>
+          <label for="population"></label>
           <input
             required
             data-population
@@ -25,6 +29,7 @@
             name="population"
             onfocusin="removeWarning()"
           />
+          <label for="timeToElapse"></label>
           <input
             required
             data-time-to-elapse
@@ -34,6 +39,7 @@
             name="timeToElapse"
             onfocusin="removeWarning()"
           />
+          <label for="reportedCases"></label>
           <input
             required
             data-reported-cases
@@ -43,6 +49,7 @@
             name="reportedCases"
             onfocusin="removeWarning()"
           />
+          <label for="totalHospitalBeds"></label>
           <input
             required
             data-total-hospital-beds
@@ -52,12 +59,13 @@
             name="totalHospitalBeds"
             onfocusin="removeWarning()"
           />
-          <label class="label">Choose your period type</label>
+          <label class="label" for="periodType">Choose your period type</label>
           <select
             class="periodtype"
             id="periodType"
             required
             onfocusin="removeWarning()"
+            name="periodType"
           >
             <option selected>...</option>
             <option value="days">Days</option>

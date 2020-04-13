@@ -254,9 +254,9 @@ function fillData(calculatedData, timeToElapse, periodType) {
 }
 
 function removeWarning() {
-  const containers = document.getElementById('container');
+  const container = document.getElementById('container');
   const overlayRight = document.querySelector('#overlay-right');
-  containers.classList.remove('error');
+  container.classList.remove('error');
   overlayRight.classList.remove('error-message-visible');
 }
 

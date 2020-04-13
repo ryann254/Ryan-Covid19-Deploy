@@ -242,13 +242,13 @@ function fillData(calculatedData, timeToElapse, periodType) {
   const dollarsInFlight = document.querySelector('#dollarsInFlight');
 
   cInfected.innerHTML = calculatedData.impact.currentlyInfected;
-  iLabel.innerHTML = `Infections in ${timeToElapse.value} ${periodType}: `;
+  iLabel.innerHTML = `Infections in ${timeToElapse.value} ${periodType.value}: `;
   infectionsByRT.innerHTML = calculatedData.impact.infectionsByRequestedTime;
-  icuCasesLabel.innerHTML = `People Needing ICU Care in ${timeToElapse.value} ${periodType}: `;
+  icuCasesLabel.innerHTML = `People Needing ICU Care in ${timeToElapse.value} ${periodType.value}: `;
   casesForICUByRT.innerHTML = calculatedData.impact.casesForICUByRequestedTime;
-  hospitalBeds.innerHTML = `Hospital Beds Still Available in ${timeToElapse.value} ${periodType}: `;
+  hospitalBeds.innerHTML = `Hospital Beds Still Available in ${timeToElapse.value} ${periodType.value}: `;
   BedsByRT.innerHTML = calculatedData.impact.hospitalBedsByRequestedTime;
-  ventilators.innerHTML = `Ventilators Needed in ${timeToElapse.value} ${periodType}: `;
+  ventilators.innerHTML = `Ventilators Needed in ${timeToElapse.value} ${periodType.value}: `;
   cVent.innerHTML = calculatedData.impact.casesForVentilatorsByRequestedTime;
   dollarsInFlight.innerHTML = `$ ${calculatedData.impact.dollarsInFlight}`;
 }
@@ -260,17 +260,6 @@ function removeWarning() {
   overlayRight.classList.remove('error-message-visible');
 }
 
-function displayRadioValue() {
-  const element = document.getElementsByName('periodType');
-  let periodType;
-  for (let i = 0; i < element.length; i += 1) {
-    if (element[i].checked) {
-      periodType = element[i].value;
-    }
-  }
-  return periodType;
-}
-
 // eslint-disable-next-line no-unused-vars
 function handleSave() {
   const container = document.getElementById('container');
@@ -278,7 +267,7 @@ function handleSave() {
   const timetoElapse = document.querySelector('#timeToElapse');
   const reportedCases = document.querySelector('#reportedCases');
   const totalHospitalBeds = document.querySelector('#totalHospitalBeds');
-  const periodType = displayRadioValue();
+  const periodType = document.querySelector('#periodType');
 
   const checkArray = [];
   checkArray.push(
@@ -286,10 +275,10 @@ function handleSave() {
     timetoElapse.value,
     reportedCases.value,
     totalHospitalBeds.value,
-    periodType
+    periodType.value
   );
   checkArray.forEach((item) => {
-    if (Number.isNaN(item) || item === '') {
+    if (item === '...') {
       const overlayRight = document.querySelector('#overlay-right');
       container.classList.add('error');
       overlayRight.classList.add('error-message-visible');
@@ -303,7 +292,7 @@ function handleSave() {
           avgDailyIncomeInUSD: 5,
           avgDailyIncomePopulation: 0.71
         },
-        periodType,
+        periodType: periodType.value,
         timeToElapse: timetoElapse.value,
         reportedCases: reportedCases.value,
         population: population.value,

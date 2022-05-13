@@ -2,6 +2,8 @@
 
 > Build an overly simplified COVID-19 infection impact estimator
 
+This the deployed in the version of the [Ryan-Covid19-Challenge](https://github.com/ryann254/Ryan-Covid19-Challenge).
+
 This is an eligibility assessment for the 2020 [#BuildforSDG](https://buildforsdg.andela.com/) program
 
 The assessment empowers me to **attempt** helping society and leaders prepare for the **real big problem** of COVID-19, which is **its impact on lives, health systems, supply chains, and the economy**: 
